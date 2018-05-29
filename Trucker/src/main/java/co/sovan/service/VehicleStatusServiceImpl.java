@@ -17,9 +17,12 @@ import java.util.Optional;
 public class VehicleStatusServiceImpl implements  VehicleStatusService {
     @Autowired
     VehicleStatusRepository vehicleStatusRepository;
+    @Autowired
+    AlertService alertService;
     @Transactional
     public VehicleStatus create(VehicleStatus vehicleStatus) {
          vehicleStatusRepository.save(vehicleStatus);
+         alertService.generateAlert(vehicleStatus);
          return vehicleStatus;
     }
 

@@ -14,6 +14,7 @@ public class Alert {
     private Date timeStamp;
     private String Details;
     private String priority;
+    private String vmake;
     public Alert(){
         this.id= UUID.randomUUID().toString();
         this.timeStamp=new Date();
@@ -57,5 +58,13 @@ public class Alert {
 
     public void setPriority(String priority) {
         this.priority = priority;
+    }
+
+    public String getVmake() {
+        return vmake;
+    }
+
+    public void setVmake(String vmake) {
+        this.vmake = vmake;
     }
 }
