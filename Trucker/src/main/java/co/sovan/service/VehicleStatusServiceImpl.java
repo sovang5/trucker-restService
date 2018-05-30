@@ -1,6 +1,8 @@
 package co.sovan.service;
 
 
+import co.sovan.Exception.BadRequestException;
+import co.sovan.Exception.ResourceNotFoundException;
 import co.sovan.entity.Location;
 import co.sovan.entity.VehicleStatus;
 import co.sovan.repository.VehicleStatusRepository;
@@ -11,7 +13,7 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class VehicleStatusServiceImpl implements  VehicleStatusService {
@@ -20,23 +22,28 @@ public class VehicleStatusServiceImpl implements  VehicleStatusService {
     @Autowired
     AlertService alertService;
     @Transactional
+//  Method to Store Vehicle Status
     public VehicleStatus create(VehicleStatus vehicleStatus) {
-         vehicleStatusRepository.save(vehicleStatus);
-         alertService.generateAlert(vehicleStatus);
-         return vehicleStatus;
-    }
 
+         alertService.generateAlert(vehicleStatus);
+         return vehicleStatusRepository.save(vehicleStatus);
+    }
+//  Method to return all vehicle's Status
     public List<VehicleStatus> findAll() {
         return (List<VehicleStatus>)vehicleStatusRepository.findAll();
     }
 
+
+//  Method to return specified vehicle location
     @Transactional
     public List<Location> findLocation(String vin) {
-        System.out.println("Come here");
 
         List<VehicleStatus> entry=vehicleStatusRepository.findAllByVin(vin);
+        if(entry.isEmpty()){
+            throw new ResourceNotFoundException("The vehicle Id "+vin+"is not present in the Database");
+        }
         List<Location> location= new ArrayList<Location>();
-        System.out.println(new Date());
+        // Checking the time is less than 30 mins or not
         for(int i=0;i<entry.size();i++){
             if(((new Date().getTime()-entry.get(i).getTimestamp().getTime())/(1000*60))<30) {
                 location.add(new Location(entry.get(i).getLatitude(), entry.get(i).getLongitude(), entry.get(i).getTimestamp()));

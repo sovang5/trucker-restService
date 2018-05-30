@@ -3,7 +3,7 @@ package co.sovan.entity;
 
 import javax.persistence.Entity;
 import java.util.Date;
-
+// Location Class is used to return the object location of a specific vehicle
 public class Location {
     private Date timestamp;
     private double longitude;

@@ -4,7 +4,7 @@ package co.sovan.entity;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
-
+// VehicleStatus class is to store the information getting for a specified vehicle
 @Entity
 public class VehicleStatus{
     @Id
@@ -20,7 +20,7 @@ public class VehicleStatus{
     private boolean engineCoolantLow;
     private boolean cruiseControlOn;
     private int engineRpm;
-
+    // Embedded tire class instance
     @OneToOne(cascade = {CascadeType.ALL})
     private Tires tires;
 

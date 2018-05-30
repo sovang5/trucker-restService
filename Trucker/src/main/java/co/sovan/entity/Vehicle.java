@@ -4,6 +4,8 @@ package co.sovan.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
+
+// Vehicle is an Entity class to store vehicle information in database
 @Entity
 public class Vehicle {
     @Id

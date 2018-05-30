@@ -3,7 +3,7 @@ package co.sovan.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.UUID;
-
+//Tires class is embedded class(VehicleStatus) to store tire pressure information of a specified vehicle
 @Entity
 public class Tires {
     @Id

@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
 import java.util.UUID;
-
+// This is an Entity class to create and Store Alert objects to a specified object
 @Entity
 public class Alert {
     @Id
@@ -14,7 +14,7 @@ public class Alert {
     private Date timeStamp;
     private String Details;
     private String priority;
-    private String vmake;
+
     public Alert(){
         this.id= UUID.randomUUID().toString();
         this.timeStamp=new Date();
@@ -60,11 +60,5 @@ public class Alert {
         this.priority = priority;
     }
 
-    public String getVmake() {
-        return vmake;
-    }
 
-    public void setVmake(String vmake) {
-        this.vmake = vmake;
-    }
 }

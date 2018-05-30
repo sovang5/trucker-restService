@@ -16,21 +16,22 @@ import java.util.List;
 public class VehicleController {
     @Autowired
     VehicleService vehicleService;
-
+//  Mapping to retrieve all vehicles information
     @RequestMapping(method= RequestMethod.GET)
     public List<Vehicle> findAll(){
 
         return vehicleService.findAll();
     }
+//  Mapping to return information of  a Specified Vehicle
     @RequestMapping(method= RequestMethod.GET, value="{id}")
     public Vehicle findOne(@PathVariable("id") String id){
 
         return vehicleService.findOne(id);
     }
+//  Mapping to Store  list of Vehicles
     @CrossOrigin(origins = {"http://mocker.egen.io"}, maxAge=4800)
     @RequestMapping(method= RequestMethod.PUT)
     public Vehicle create(@RequestBody List<Vehicle> vehicle){
-
         return vehicleService.create(vehicle);
     }
 }

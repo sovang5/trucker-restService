@@ -11,6 +11,6 @@ import org.springframework.data.repository.CrudRepository;
 
 @Repository
 public interface VehicleStatusRepository extends CrudRepository<VehicleStatus,String> {
-    //@Query("select veh from VehicleStatus veh where veh.timestamp<SQL(\"(sysdate - interval '30' minute)\" and veh.vin=:vin")
-    List<VehicleStatus> findAllByVin(@Param("vin") String vin);
+    // Method to return vehicle Status of a Specified vehicle using Vin
+    List<VehicleStatus> findAllByVin(String vin);
 }

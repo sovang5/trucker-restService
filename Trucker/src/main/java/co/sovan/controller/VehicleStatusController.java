@@ -18,22 +18,22 @@ import java.util.List;
 public class VehicleStatusController {
     @Autowired
     VehicleStatusService vehicleStatusService;
+//  Method to store Vehicle Status
     @RequestMapping(method = RequestMethod.POST)
     public VehicleStatus create(@RequestBody VehicleStatus vehicleStatus){
-
         return vehicleStatusService.create(vehicleStatus);
-
     }
-
+//  Method to retrieve all Vehicle Status
     @RequestMapping(method= RequestMethod.GET)
     public List<VehicleStatus> findAll(){
 
         return vehicleStatusService.findAll();
     }
+//  Method to retrieve a specified vehicle's location
     @RequestMapping(method = RequestMethod.GET,value = "{vin}")
     public List<Location> findLocation(@PathVariable("vin") String vin) {
         return vehicleStatusService.findLocation(vin);
-        //return null;
+
     }
 
 }
