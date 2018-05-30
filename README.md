@@ -1,13 +1,18 @@
 # Trucker-restService
 This is a rest Service to track Car location and Status of the car
 
-Get the information from  Iot Sensor in every car
+Get the information from  Iot Sensor which is placed in car
 
 Implemented Alerts:
+
 Create alerts with given priority when following rules are triggered
+
 Rule: engineRpm > readlineRpm, Priority: HIGH
+
 Rule: fuelVolume < 10% of maxFuelVolume, Priority: MEDIUM
+
 Rule: tire pressure of any tire < 32psi || > 36psi , Priority: LOW
+
 Rule: engineCoolantLow = true || checkEngineLightOn = true, Priority: LOW
 
 There are Total 4 rest Points:
