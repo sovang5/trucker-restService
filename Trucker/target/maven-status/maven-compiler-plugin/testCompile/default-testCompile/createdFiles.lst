@@ -1,0 +1,9 @@
+co\sovan\controller\VehicleControllerTest.class
+co\sovan\service\VehicleStatusServiceImplTest$VehicleStatusServiceImplTestConfiguration.class
+co\sovan\service\AlertServiceImplTest$AlertServiceImplTestConfiguration.class
+co\sovan\service\AlertServiceImplTest.class
+co\sovan\controller\AlertControllerTest.class
+co\sovan\service\VehicleServiceImplTest.class
+co\sovan\controller\VehicleStatusControllerTest.class
+co\sovan\service\VehicleServiceImplTest$VehicleServiceImplTestConfiguration.class
+co\sovan\service\VehicleStatusServiceImplTest.class

@@ -11,7 +11,7 @@ public interface VehicleService {
     // Method to find vehicle by vehicle Id
     Vehicle findOne(String id);
     // Method to Store vehicle information in the database
-    Vehicle create(List<Vehicle> vehicle);
+    List<Vehicle> create(List<Vehicle> vehicle);
 
 
 }

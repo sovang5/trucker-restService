@@ -31,11 +31,12 @@ public class VehicleServiceImpl implements VehicleService {
     }
     @Transactional
 //  Method to Store Vehicle information
-    public Vehicle create(List<Vehicle> vehicle) {
-        for (Vehicle v:vehicle
+    public List<Vehicle> create(List<Vehicle> vehicle) {
+        return (List<Vehicle>)vehicleRepository.saveAll(vehicle);
+        /*for (Vehicle v:vehicle
              ) {
             vehicleRepository.save(v);
-        }
-        return vehicle.get(0);
+        }*/
+        //return vehicle;
     }
 }

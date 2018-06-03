@@ -29,7 +29,7 @@ public class AlertServiceImpl implements AlertService{
         Vehicle vehicle=vehicleService.findOne(vId);
 
         if(vehicleStatus.getEngineRpm()>vehicle.getRedlineRpm()){
-            createAlert(vehicle.getVin(),"Engine RPM is greater than Red Line RPM","High");
+          createAlert(vehicle.getVin(),"Engine RPM is greater than Red Line RPM","High");
 
         }
         if(vehicleStatus.getFuelVolume()<(vehicle.getMaxFuelVolume()/10)){
@@ -58,9 +58,9 @@ public class AlertServiceImpl implements AlertService{
 
 
 //  Implementation to retrieve all the HIGH alerts with in 2 hours
-    public List<Alert> getAlertByType() {
+    public List<Alert> getAlertByType(String S) {
         List<Alert> newEntry=new ArrayList<Alert>();
-        List<Alert> alerts=alertRepsoitory.findAllByType("High");
+        List<Alert> alerts=alertRepsoitory.findAllByType(S);
         if(alerts.isEmpty()){
             throw new ResourceNotFoundException("There is no High Alert in the Database");
         }
@@ -81,6 +81,7 @@ public class AlertServiceImpl implements AlertService{
         alert.setPriority(type);
         alert.setVin(Id);
         alertRepsoitory.save(alert);
+
 
     }
 //  This is to check the tyre pressure of a vehicle
